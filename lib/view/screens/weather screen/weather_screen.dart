@@ -131,16 +131,19 @@ class WeatherScreen extends StatelessWidget {
                               image: 'assets/images/humidity.png',
                               value: '${controller.weatherModel!.humidity}',
                               description: 'Humidity',
+                              isHumidity: true,
                             ),
                             CustomCard(
                               image: 'assets/images/visiblitiy.png',
                               value: '${controller.weatherModel!.visibility}',
                               description: 'Visibility',
+                              isVisibility: true,
                             ),
                             CustomCard(
                               image: 'assets/images/windspeed.png',
                               value: '${controller.weatherModel!.windSpeed}',
                               description: 'Wind Speed',
+                              isWind: true,
                             ),
                             CustomCard(
                               isTime: true,

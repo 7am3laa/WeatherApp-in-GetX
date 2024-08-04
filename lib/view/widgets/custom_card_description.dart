@@ -6,14 +6,20 @@ class CustomCard extends StatelessWidget {
   final dynamic value;
   final String description;
   final bool isTime;
+  final bool isWind;
+  final bool isHumidity;
+  final bool isVisibility;
 
-  const CustomCard(
-      {Key? key,
-      required this.image,
-      required this.value,
-      required this.description,
-      this.isTime = false})
-      : super(key: key);
+  const CustomCard({
+    Key? key,
+    required this.image,
+    required this.value,
+    required this.description,
+    this.isTime = false,
+    this.isWind = false,
+    this.isHumidity = false,
+    this.isVisibility = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +52,15 @@ class CustomCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 5),
                 CustomText(
-                  text: isTime ? checkTime(value) : '°C',
+                  text: isTime
+                      ? checkTime(value)
+                      : isWind
+                          ? 'm/s'
+                          : isHumidity
+                              ? '%'
+                              : isVisibility
+                                  ? ''
+                                  : '°C',
                   fontSize: 15,
                   fontWeight: FontWeight.w300,
                   color: Colors.white,
