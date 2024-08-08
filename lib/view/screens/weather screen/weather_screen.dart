@@ -76,10 +76,9 @@ class WeatherScreen extends StatelessWidget {
                               text:
                                   '${controller.weatherModel!.cityName} , ${controller.weatherModel!.country}',
                             ),
-                            Image.asset(
-                              controller.getWeatherImage(
-                                  controller.weatherModel!.main),
-                              width: 200,
+                            Image.network(
+                              controller.weatherModel!.icon,
+                              width: 500,
                               height: 200,
                             ),
                             Row(

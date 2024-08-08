@@ -2,6 +2,7 @@ class WeatherModel {
   final String cityName;
   final String main;
   final String country;
+  final String icon;
   final String description;
   final double temperature;
   final double feelsLike;
@@ -15,6 +16,7 @@ class WeatherModel {
     required this.cityName,
     required this.main,
     required this.country,
+    required this.icon,
     required this.description,
     required this.temperature,
     required this.feelsLike,
@@ -30,6 +32,8 @@ class WeatherModel {
       cityName: json['name'],
       main: json['weather'][0]['main'],
       country: json['sys']['country'],
+      icon:
+          'http://openweathermap.org/img/wn/${json['weather'][0]['icon']}.png',
       description: json['weather'][0]['description'],
       temperature: (json['main']['temp'] as num).toDouble(),
       feelsLike: (json['main']['feels_like'] as num).toDouble(),
